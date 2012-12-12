@@ -1,0 +1,3 @@
+#!/bin/zsh
+# Undo the backspaces introduced by 'TERM=dumb script foo'
+exec /bin/sed -e ': label' -e 's/.\cH//' -e 's/\cM//' -e 't label' -- "$@"
